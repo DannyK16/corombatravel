@@ -30,23 +30,26 @@ export default class Location extends Component {
 
 	render() {
 		return (
-			<div {...storyblokEditable(this.props.blok)}>
-				<Headermenu blok={this.props.menu.content}></Headermenu>
-				<main>
-					<Hero blok={this.props.blok} contentTypeTag="course" />
-					<div className={css["location__main-content"]}>
-						<div id="location__short-description" key="location__short-description" className={css["location__short-description"]}>
-							<section className={css["rich-text-section--with-navigator"]}>
-								<h2 className={css["rich-text-section__title"]}>Hello everyone</h2>
-								<div className={css["rich-text-section__rich-text"]}>{RichTextToHTML({ document: this.props.blok.description })}</div>
-							</section>
+			<div>
+				    Location:{this.props.blok.title}
+				<div {...storyblokEditable(this.props.blok)}>
+					<Headermenu blok={this.props.menu.content}></Headermenu>
+					<main>
+						<Hero blok={this.props.blok} contentTypeTag="course" />
+						<div className={css["location__main-content"]}>
+							<div id="location__short-description" key="location__short-description" className={css["location__short-description"]}>
+								<section className={css["rich-text-section--with-navigator"]}>
+									<h2 className={css["rich-text-section__title"]}>Hello everyone</h2>
+									<div className={css["rich-text-section__rich-text"]}>{RichTextToHTML({ document: this.props.blok.description })}</div>
+								</section>
+							</div>
 						</div>
-					</div>
 
-					{this.props.blok.images && this.props.blok.images.map((nestedBlok) => (
-						<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-					))}
-				</main>
+						{this.props.blok.images && this.props.blok.images.map((nestedBlok) => (
+							<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+						))}
+					</main>
+				</div>
 			</div>
 		);
 
